@@ -5,7 +5,7 @@ import org.mn.ushell.client.ClientOutputThread;
 import org.mn.ushell.server.ClientHandler;
 import org.mn.ushell.util.OSUtil;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -14,7 +14,12 @@ public class UShell {
 
     public static void main(String[] args) {
         OSUtil.printBanner();
-        if(args.length == 1) {
+
+        if(args.length != 1 || args.length != 2) {
+            printUsage();
+            System.exit(1);
+        }
+        else if(args.length == 1) {
             String type = args[0];
             if (type.equalsIgnoreCase("server")) {
                 // Start server
@@ -25,9 +30,9 @@ public class UShell {
                 System.exit(1);
             }
         }
-        if (args.length == 2){
+        else if (args.length == 2){
             String type = args[0];
-            if(type.equalsIgnoreCase("client")){
+            if(type.equalsIgnoreCase("client")) {
                 // Start client
                 new UShell().startClient(args[1]);
             }
@@ -35,10 +40,6 @@ public class UShell {
                 printUsage();
                 System.exit(1);
             }
-        }
-        else {
-            printUsage();
-            System.exit(1);
         }
     }
 

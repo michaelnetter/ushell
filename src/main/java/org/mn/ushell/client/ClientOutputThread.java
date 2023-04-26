@@ -1,6 +1,11 @@
 package org.mn.ushell.client;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 public class ClientOutputThread implements Runnable {
     private OutputStream sckOut;
@@ -16,7 +21,7 @@ public class ClientOutputThread implements Runnable {
             while(true) {
                 String str;
                 if((str = sysIn.readLine()) != null) {
-                    DataOutputStream  sckObjOut = new DataOutputStream (sckOut);
+                    DataOutputStream sckObjOut = new DataOutputStream (sckOut);
                     sckObjOut.writeUTF(str);
                     sckObjOut.flush();
                 }

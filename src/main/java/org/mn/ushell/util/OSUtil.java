@@ -2,7 +2,6 @@ package org.mn.ushell.util;
 
 /**
  * Implements some OS specific functions
- *
  */
 public class OSUtil {
 

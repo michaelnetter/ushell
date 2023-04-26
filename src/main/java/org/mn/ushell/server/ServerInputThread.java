@@ -1,6 +1,10 @@
 package org.mn.ushell.server;
 
-import java.io.*;
+
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class ServerInputThread implements Runnable {
     private InputStream sckIn;
@@ -14,7 +18,7 @@ public class ServerInputThread implements Runnable {
     public void run(){
         try {
             while(true) {
-                DataInputStream  sckObjIn = new DataInputStream (sckIn);
+                DataInputStream sckObjIn = new DataInputStream (sckIn);
                 String str = sckObjIn.readUTF();
                 processOut.write(str);
                 processOut.newLine();
