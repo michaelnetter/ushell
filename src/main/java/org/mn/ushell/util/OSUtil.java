@@ -7,7 +7,7 @@ public class OSUtil {
 
     private static final String WINDOWS_SHELL = "cmd";
     private static final String UNIX_SHELL = "sh";
-    private static final String VERSION_AUTHOR = "v0.1 (c) 2008 mn";
+    private static final String VERSION_AUTHOR = "0.1 (Release date: Dec 25, 2008)";
     private static final String FALLBACK_BANNER = "ushell";
     private static final String DEFAULT_BANNER = "\u03BC" + "shell";
 

@@ -15,7 +15,7 @@ public class UShell {
     public static void main(String[] args) {
         OSUtil.printBanner();
 
-        if(args.length != 1 || args.length != 2) {
+        if(args.length != 1 && args.length != 2) {
             printUsage();
             System.exit(1);
         }
